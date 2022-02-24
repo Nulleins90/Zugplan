@@ -13,6 +13,10 @@ public class Fahrplan {
         this.listeZuglinien.add(zuglinie);
     }
 
+    public void deleteZuglinie(Zuglinie zuglinie) {
+        this.listeZuglinien.remove(zuglinie);
+    } 
+
     @Override
     public int hashCode() {
         final int prime = 31;

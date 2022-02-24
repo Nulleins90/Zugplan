@@ -41,8 +41,10 @@ public class Haltepunkt implements Comparable {
 
     @Override
     public int compareTo(Object o) {
-        // TODO Auto-generated method stub
-        return 0;
+        if(this.name.compareTo(((Haltepunkt)o).name) == 0){
+            this.gleis.compareTo(((Haltepunkt)o).gleis);
+        }
+        return this.name.compareTo(((Haltepunkt)o).name);
     }
 
     @Override
@@ -84,7 +86,7 @@ public class Haltepunkt implements Comparable {
 
     @Override
     public String toString() {
-        return "Haltepunkte [ankunftszeit=" + ankunftszeit + ", gleis=" + gleis + ", name=" + name + "]";
+        return "Haltepunkt " + name + " Gleis " + gleis + " um " + ankunftszeit;
     }
 
     

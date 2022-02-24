@@ -21,13 +21,27 @@ public class Main {
         ArrayList<Haltepunkt> test = new ArrayList<Haltepunkt>();
         test.add(belm); test.add(osna);
         Zuglinie zwei = new Zuglinie("Test", test);
-        System.out.println("------------");
-        System.out.println(zwei);
+        // System.out.println("------------");
+        // System.out.println(zwei);
 
         Fahrplan fahrplan = new Fahrplan();
         fahrplan.addZuglinie(zwei);
         fahrplan.addZuglinie(osnaBelm);
-        System.out.println("-------------");
-        System.out.println(fahrplan);
+        // System.out.println("-------------");
+        // System.out.println(fahrplan);
+
+        // fahrplan.deleteZuglinie(zwei);
+        // System.out.println("-------------");
+        // System.out.println(fahrplan);
+
+        // osnaBelm.deleteHaltepunkt(oldb);
+        // System.out.println("-------------");
+        // System.out.println(osnaBelm);
+
+        osnaBelm.printHaltepunkteSortiert(new HaltepunktZeitSortierer());
+        System.out.println("-----------");
+        System.out.println(osnaBelm);
+        System.out.println("-----------");
+        osnaBelm.printHaltepunkteSortiert(new HaltepunktNameSortierer());
     }
 }
