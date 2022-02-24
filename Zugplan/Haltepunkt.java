@@ -41,10 +41,12 @@ public class Haltepunkt implements Comparable {
 
     @Override
     public int compareTo(Object o) {
-        if(this.name.compareTo(((Haltepunkt)o).name) == 0){
-            this.gleis.compareTo(((Haltepunkt)o).gleis);
-        }
-        return this.name.compareTo(((Haltepunkt)o).name);
+        return this.ankunftszeit.compareTo(((Haltepunkt)o).getAnkunftszeit());
+
+        // if(this.name.compareTo(((Haltepunkt)o).name) == 0){
+        //     this.gleis.compareTo(((Haltepunkt)o).gleis);
+        // }
+        // return this.name.compareTo(((Haltepunkt)o).name);
     }
 
     @Override

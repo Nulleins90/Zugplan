@@ -1,6 +1,7 @@
 package Zugplan;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Fahrplan {
     private ArrayList<Zuglinie> listeZuglinien;
@@ -16,6 +17,21 @@ public class Fahrplan {
     public void deleteZuglinie(Zuglinie zuglinie) {
         this.listeZuglinien.remove(zuglinie);
     } 
+
+    public void bahnhofZug(String name) {
+
+        Iterator<Zuglinie> it = listeZuglinien.iterator();
+        while(it.hasNext()){
+            Zuglinie temp1 = it.next();
+            Iterator<Haltepunkt> itH = temp1.getListeHaltepunkte().iterator();
+            while(itH.hasNext()){
+                Haltepunkt temp2 = itH.next();
+                if(temp2.getName().equals(name)) {
+                    System.out.println(temp1.getBezeichner() + " " + temp2.getAnkunftszeit());
+                }
+            }
+        }
+    }
 
     @Override
     public int hashCode() {

@@ -2,6 +2,7 @@ package Zugplan;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Iterator;
 
 public class Zuglinie implements Comparable {
     private String bezeichner;
@@ -29,7 +30,13 @@ public class Zuglinie implements Comparable {
         ArrayList<Haltepunkt> sortiert = new ArrayList<Haltepunkt>();
         sortiert.addAll(this.listeHaltepunkte);
         sortiert.sort(c);
-        System.out.println(sortiert);
+        Iterator<Haltepunkt> it = sortiert.iterator();
+        String liste="";
+        while(it.hasNext()) {
+            Haltepunkt temp = it.next();
+            liste += temp.getAnkunftszeit() + " "  + temp.getName() + " Gleis " + temp.getGleis() + "\n";
+        } 
+        System.out.println(liste);
     }
 
     public String getBezeichner() {
@@ -38,6 +45,14 @@ public class Zuglinie implements Comparable {
 
     public void setBezeichner(String bezeichner) {
         this.bezeichner = bezeichner;
+    }
+
+    public ArrayList<Haltepunkt> getListeHaltepunkte() {
+        return listeHaltepunkte;
+    }
+
+    public void setListeHaltepunkte(ArrayList<Haltepunkt> listeHaltepunkte) {
+        this.listeHaltepunkte = listeHaltepunkte;
     }
 
     @Override
