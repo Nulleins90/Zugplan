@@ -18,16 +18,28 @@ public class Fahrplan {
         this.listeZuglinien.remove(zuglinie);
     } 
 
-    public void bahnhofZug(String name) {
+    public void zuglinieProBahnhof(String name) {
 
         Iterator<Zuglinie> it = listeZuglinien.iterator();
         while(it.hasNext()){
             Zuglinie temp1 = it.next();
+            ArrayList<Haltepunkt> list = temp1.getListeHaltepunkte();
+            list.sort(new HaltepunktZeitSortierer());
             Iterator<Haltepunkt> itH = temp1.getListeHaltepunkte().iterator();
+            Haltepunkt erster = list.get(0);
+            Haltepunkt letzter = list.get(list.size()-1);
             while(itH.hasNext()){
                 Haltepunkt temp2 = itH.next();
                 if(temp2.getName().equals(name)) {
-                    System.out.println(temp1.getBezeichner() + " " + temp2.getAnkunftszeit());
+                    System.out.println("-----------");
+                    System.out.println(temp1.getBezeichner());
+                    if(!(erster.getName().equals(temp2.getName()))){
+                        System.out.println(erster.getName() + " " + erster.getAnkunftszeit());
+                    }
+                    System.out.println(temp2.getName() + " " + temp2.getAnkunftszeit());
+                    if(!(letzter.getName().equals(temp2.getName()))){
+                        System.out.println(letzter.getName() + " " + letzter.getAnkunftszeit());
+                    }
                 }
             }
         }
